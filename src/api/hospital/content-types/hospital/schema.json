@@ -40,9 +40,9 @@
     },
     "categories": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "manyToMany",
       "target": "api::category.category",
-      "mappedBy": "hospital"
+      "mappedBy": "hospitals"
     },
     "Description": {
       "type": "richtext"

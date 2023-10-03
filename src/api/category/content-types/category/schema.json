@@ -26,9 +26,15 @@
         "audios"
       ]
     },
-    "hospital": {
+    "doctors": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
+      "target": "api::doctor.doctor",
+      "mappedBy": "categories"
+    },
+    "hospitals": {
+      "type": "relation",
+      "relation": "manyToMany",
       "target": "api::hospital.hospital",
       "inversedBy": "categories"
     }

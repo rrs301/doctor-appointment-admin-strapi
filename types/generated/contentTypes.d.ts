@@ -690,9 +690,14 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   attributes: {
     Name: Attribute.String;
     Icon: Attribute.Media;
-    hospital: Attribute.Relation<
+    doctors: Attribute.Relation<
       'api::category.category',
-      'manyToOne',
+      'manyToMany',
+      'api::doctor.doctor'
+    >;
+    hospitals: Attribute.Relation<
+      'api::category.category',
+      'manyToMany',
       'api::hospital.hospital'
     >;
     createdAt: Attribute.DateTime;
@@ -706,6 +711,47 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiDoctorDoctor extends Schema.CollectionType {
+  collectionName: 'doctors';
+  info: {
+    singularName: 'doctor';
+    pluralName: 'doctors';
+    displayName: 'Doctor';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Name: Attribute.String;
+    Address: Attribute.String;
+    Patients: Attribute.String;
+    Year_of_Experience: Attribute.String;
+    StartTime: Attribute.Time;
+    EndTime: Attribute.Time;
+    About: Attribute.RichText;
+    categories: Attribute.Relation<
+      'api::doctor.doctor',
+      'manyToMany',
+      'api::category.category'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::doctor.doctor',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::doctor.doctor',
       'oneToOne',
       'admin::user'
     > &
@@ -733,7 +779,7 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
     Phone: Attribute.Integer;
     categories: Attribute.Relation<
       'api::hospital.hospital',
-      'oneToMany',
+      'manyToMany',
       'api::category.category'
     >;
     Description: Attribute.RichText;
@@ -804,6 +850,7 @@ declare module '@strapi/strapi' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::category.category': ApiCategoryCategory;
+      'api::doctor.doctor': ApiDoctorDoctor;
       'api::hospital.hospital': ApiHospitalHospital;
       'api::slider.slider': ApiSliderSlider;
     }
