@@ -49,6 +49,15 @@
     },
     "Premium": {
       "type": "boolean"
+    },
+    "OpeningHours": {
+      "type": "time"
+    },
+    "appointments": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::appointment.appointment",
+      "mappedBy": "hospitals"
     }
   }
 }
