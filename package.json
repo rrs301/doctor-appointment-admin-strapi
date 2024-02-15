@@ -10,11 +10,16 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi/plugin-i18n": "4.13.7",
-    "@strapi/plugin-users-permissions": "4.13.7",
+    "@strapi/plugin-i18n": "4.20.1",
+    "@strapi/plugin-users-permissions": "4.20.1",
     "@strapi/provider-upload-cloudinary": "^4.14.0",
-    "@strapi/strapi": "4.13.7",
-    "mysql": "2.18.1"
+    "@strapi/strapi": "4.20.1",
+    "mysql": "2.18.1",
+    "pg": "^8.11.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^5.3.4",
+    "styled-components": "^5.3.11"
   },
   "author": {
     "name": "A Strapi developer"

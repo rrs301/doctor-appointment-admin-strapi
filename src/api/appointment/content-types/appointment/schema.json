@@ -24,14 +24,20 @@
     "Time": {
       "type": "string"
     },
-    "hospitals": {
+    "hospital": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "manyToOne",
       "target": "api::hospital.hospital",
       "inversedBy": "appointments"
     },
     "Note": {
       "type": "richtext"
+    },
+    "doctor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::doctor.doctor",
+      "inversedBy": "appointments"
     }
   }
 }

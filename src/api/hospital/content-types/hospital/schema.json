@@ -55,9 +55,9 @@
     },
     "appointments": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToMany",
       "target": "api::appointment.appointment",
-      "mappedBy": "hospitals"
+      "mappedBy": "hospital"
     }
   }
 }
