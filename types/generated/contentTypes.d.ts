@@ -902,6 +902,7 @@ export interface ApiDoctorDoctor extends Schema.CollectionType {
       'oneToMany',
       'api::appointment.appointment'
     >;
+    email: Attribute.Email;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
